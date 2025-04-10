@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Sistem Yuran Sekolah Agama Rakyat</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-mosque text-2xl mr-2"></i>
+                    <span class="text-xl font-semibold">Sistem Yuran SAR</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm">
+                        <i class="fas fa-user-circle mr-1"></i>
+                        Admin
+                    </span>
+                    <a href="login.html" class="hover:text-green-200">
+                        <i class="fas fa-sign-out-alt mr-1"></i>
+                        Log Keluar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <!-- Total Collections -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-green-100 text-green-600">
+                        <i class="fas fa-money-bill-wave text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">Jumlah Kutipan</p>
+                        <p class="text-xl font-semibold">RM 25,480</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Students -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">Jumlah Pelajar</p>
+                        <p class="text-xl font-semibold">156</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Payments -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">Bayaran Tertunggak</p>
+                        <p class="text-xl font-semibold">RM 3,250</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- This Month's Collection -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-purple-100 text-purple-600">
+                        <i class="fas fa-calendar-alt text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">Kutipan Bulan Ini</p>
+                        <p class="text-xl font-semibold">RM 8,920</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <button class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow flex items-center justify-center space-x-2">
+                <i class="fas fa-user-plus text-green-600"></i>
+                <span>Daftar Pelajar Baru</span>
+            </button>
+            <button class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow flex items-center justify-center space-x-2">
+                <i class="fas fa-receipt text-blue-600"></i>
+                <span>Rekod Pembayaran</span>
+            </button>
+            <button class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow flex items-center justify-center space-x-2">
+                <i class="fas fa-file-alt text-purple-600"></i>
+                <span>Jana Laporan</span>
+            </button>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="bg-white rounded-lg shadow mb-8">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-lg font-semibold">Transaksi Terkini</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID Pelajar</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tarikh</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jumlah</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tindakan</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">P001</td>
+                            <td class="px-6 py-4 whitespace-nowrap">Ahmad bin Abdullah</td>
+                            <td class="px-6 py-4 whitespace-nowrap">2024-01-15</td>
+                            <td class="px-6 py-4 whitespace-nowrap">RM 50</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Selesai
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <button class="text-blue-600 hover:text-blue-800">
+                                    <i class="fas fa-eye"></i> Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">P002</td>
+                            <td class="px-6 py-4 whitespace-nowrap">Siti binti Hassan</td>
+                            <td class="px-6 py-4 whitespace-nowrap">2024-01-14</td>
+                            <td class="px-6 py-4 whitespace-nowrap">RM 50</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Selesai
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <button class="text-blue-600 hover:text-blue-800">
+                                    <i class="fas fa-eye"></i> Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">P003</td>
+                            <td class="px-6 py-4 whitespace-nowrap">Mohamed bin Ismail</td>
+                            <td class="px-6 py-4 whitespace-nowrap">2024-01-13</td>
+                            <td class="px-6 py-4 whitespace-nowrap">RM 50</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                    Tertunggak
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <button class="text-blue-600 hover:text-blue-800">
+                                    <i class="fas fa-eye"></i> Lihat
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 border-t border-gray-200">
+                <button class="text-green-600 hover:text-green-800">
+                    Lihat Semua Transaksi <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="bg-white rounded-lg shadow">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-lg font-semibold">Notifikasi</h2>
+            </div>
+            <div class="p-6">
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-bell text-yellow-400"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-gray-700">5 pelajar mempunyai bayaran tertunggak untuk bulan ini.</p>
+                            <p class="text-xs text-gray-500">2 jam yang lalu</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-user-plus text-green-400"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-gray-700">Pelajar baru telah didaftarkan: Nurul binti Rahman</p>
+                            <p class="text-xs text-gray-500">5 jam yang lalu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add any necessary JavaScript for dashboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Add click handlers for buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Handle button clicks
+                    console.log('Button clicked:', button.textContent.trim());
+                });
+            });
+        });
+    </script>
+</body>
+</html>
