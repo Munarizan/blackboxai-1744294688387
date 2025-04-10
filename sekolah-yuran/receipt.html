@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resit Pembayaran - Sistem Yuran Sekolah Agama Rakyat</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            .print-only {
+                display: block;
+            }
+            .receipt-container {
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (No Print) -->
+    <nav class="bg-green-600 text-white shadow-lg no-print">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-mosque text-2xl mr-2"></i>
+                    <span class="text-xl font-semibold">Sistem Yuran SAR</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="student-dashboard.html" class="hover:text-green-200">
+                        <i class="fas fa-arrow-left mr-1"></i>
+                        Kembali ke Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Success Message (No Print) -->
+    <div class="container mx-auto px-4 py-8 no-print">
+        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-8">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium text-green-800">
+                        Pembayaran Berjaya!
+                    </h3>
+                    <p class="text-sm text-green-700 mt-1">
+                        Pembayaran anda telah diterima. Sila simpan resit ini untuk rujukan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Receipt -->
+    <div class="container mx-auto px-4 pb-8">
+        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg receipt-container">
+            <!-- Receipt Header -->
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-mosque text-3xl text-green-600 mr-2"></i>
+                            <h1 class="text-2xl font-bold">Sekolah Agama Rakyat</h1>
+                        </div>
+                        <p class="text-gray-600">
+                            Jalan Sekolah 1/1<br>
+                            Taman Sekolah<br>
+                            43000 Kajang, Selangor
+                        </p>
+                    </div>
+                    <div class="text-right">
+                        <h2 class="text-xl font-semibold text-green-600">RESIT PEMBAYARAN</h2>
+                        <p class="text-gray-600 mt-2">
+                            No. Resit: R003<br>
+                            Tarikh: 15 Jan 2024<br>
+                            Masa: 10:30 AM
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Details -->
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-lg font-semibold mb-4">Maklumat Pelajar</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-sm text-gray-600">Nama Pelajar:</p>
+                        <p class="font-semibold">Ahmad bin Abdullah</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">ID Pelajar:</p>
+                        <p class="font-semibold">P001</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Kelas:</p>
+                        <p class="font-semibold">4A</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Tahun:</p>
+                        <p class="font-semibold">2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Details -->
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-lg font-semibold mb-4">Butiran Pembayaran</h3>
+                <table class="w-full">
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-2">Yuran Bulanan</td>
+                            <td class="py-2">Februari 2024</td>
+                            <td class="py-2 text-right">RM 50.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="py-2 font-semibold">Jumlah</td>
+                            <td class="py-2 text-right font-semibold">RM 50.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-sm text-gray-600">Kaedah Pembayaran:</p>
+                        <p class="font-semibold">FPX Online Banking</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Status:</p>
+                        <p class="font-semibold text-green-600">BERJAYA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="p-6 text-center text-gray-600 text-sm">
+                <p>Ini adalah resit yang dijana oleh komputer dan tidak memerlukan tandatangan.</p>
+                <p class="mt-2">Terima kasih atas pembayaran anda.</p>
+            </div>
+
+            <!-- Action Buttons (No Print) -->
+            <div class="p-6 bg-gray-50 rounded-b-lg flex justify-center space-x-4 no-print">
+                <button onclick="window.print()" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    <i class="fas fa-print mr-2"></i>
+                    Cetak Resit
+                </button>
+                <button onclick="downloadPDF()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    <i class="fas fa-download mr-2"></i>
+                    Muat Turun PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            // In a real implementation, this would generate and download a PDF
+            alert('Fungsi muat turun PDF akan diimplementasikan.');
+        }
+
+        // Add current date and time to receipt
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('ms-MY');
+            const timeStr = now.toLocaleTimeString('ms-MY');
+            
+            // Update receipt date and time if needed
+            // This is just a placeholder as the date is hardcoded in the HTML for demo
+        });
+    </script>
+</body>
+</html>
