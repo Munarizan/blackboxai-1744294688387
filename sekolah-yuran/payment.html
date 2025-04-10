@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Yuran - Sistem Yuran Sekolah Agama Rakyat</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-mosque text-2xl mr-2"></i>
+                    <span class="text-xl font-semibold">Sistem Yuran SAR</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="student-dashboard.html" class="hover:text-green-200">
+                        <i class="fas fa-arrow-left mr-1"></i>
+                        Kembali ke Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto">
+            <!-- Payment Form Card -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-6">Pembayaran Yuran</h2>
+
+                <!-- Student Info Summary -->
+                <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-sm text-gray-600">Nama Pelajar</p>
+                            <p class="font-semibold">Ahmad bin Abdullah</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">ID Pelajar</p>
+                            <p class="font-semibold">P001</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">Kelas</p>
+                            <p class="font-semibold">4A</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">Tahun</p>
+                            <p class="font-semibold">2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Form -->
+                <form id="paymentForm" onsubmit="handlePayment(event)">
+                    <!-- Payment Details -->
+                    <div class="space-y-6">
+                        <!-- Month Selection -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Bulan Pembayaran
+                            </label>
+                            <select required
+                                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 rounded-md">
+                                <option value="">Pilih Bulan</option>
+                                <option value="2024-02">Februari 2024</option>
+                                <option value="2024-03">Mac 2024</option>
+                                <option value="2024-04">April 2024</option>
+                            </select>
+                        </div>
+
+                        <!-- Amount -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Jumlah Pembayaran
+                            </label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <span class="text-gray-500 sm:text-sm">RM</span>
+                                </div>
+                                <input type="number" value="50" readonly
+                                    class="focus:ring-green-500 focus:border-green-500 block w-full pl-12 pr-12 sm:text-sm border-gray-300 rounded-md bg-gray-50">
+                            </div>
+                            <p class="mt-2 text-sm text-gray-500">Yuran tetap bulanan: RM 50</p>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Kaedah Pembayaran
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <!-- Online Banking -->
+                                <label class="relative border rounded-lg p-4 flex flex-col cursor-pointer">
+                                    <input type="radio" name="paymentMethod" value="fpx" class="sr-only" required>
+                                    <div class="flex items-center justify-center mb-2">
+                                        <i class="fas fa-university text-2xl text-green-600"></i>
+                                    </div>
+                                    <div class="text-sm text-center">FPX Online Banking</div>
+                                </label>
+
+                                <!-- Credit/Debit Card -->
+                                <label class="relative border rounded-lg p-4 flex flex-col cursor-pointer">
+                                    <input type="radio" name="paymentMethod" value="card" class="sr-only" required>
+                                    <div class="flex items-center justify-center mb-2">
+                                        <i class="fas fa-credit-card text-2xl text-blue-600"></i>
+                                    </div>
+                                    <div class="text-sm text-center">Kad Kredit/Debit</div>
+                                </label>
+
+                                <!-- E-Wallet -->
+                                <label class="relative border rounded-lg p-4 flex flex-col cursor-pointer">
+                                    <input type="radio" name="paymentMethod" value="ewallet" class="sr-only" required>
+                                    <div class="flex items-center justify-center mb-2">
+                                        <i class="fas fa-wallet text-2xl text-purple-600"></i>
+                                    </div>
+                                    <div class="text-sm text-center">E-Wallet</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="terms" name="terms" type="checkbox" required
+                                    class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms" class="font-medium text-gray-700">
+                                    Saya bersetuju dengan terma dan syarat pembayaran
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="flex justify-end">
+                            <button type="submit"
+                                class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Buat Pembayaran
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Payment Instructions -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-4">Panduan Pembayaran</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-blue-500"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-gray-600">
+                                Pembayaran yuran adalah untuk bulan semasa atau bulan akan datang sahaja.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-gray-600">
+                                Resit pembayaran akan dihantar ke emel yang berdaftar selepas pembayaran berjaya.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-exclamation-circle text-yellow-500"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-gray-600">
+                                Sila pastikan maklumat pembayaran adalah tepat sebelum membuat pembayaran.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Processing Payment Modal (Hidden by default) -->
+    <div id="processingModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="text-center">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">Memproses Pembayaran</h3>
+                <p class="text-sm text-gray-500">Sila tunggu sebentar...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handlePayment(event) {
+            event.preventDefault();
+            
+            // Show processing modal
+            document.getElementById('processingModal').classList.remove('hidden');
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                // Hide processing modal
+                document.getElementById('processingModal').classList.add('hidden');
+                
+                // Redirect to receipt page
+                window.location.href = 'receipt.html';
+            }, 2000);
+        }
+
+        // Add active state to payment method selection
+        document.querySelectorAll('input[name="paymentMethod"]').forEach(input => {
+            input.addEventListener('change', function() {
+                // Remove active state from all
+                document.querySelectorAll('input[name="paymentMethod"]').forEach(i => {
+                    i.parentElement.classList.remove('border-green-500', 'ring-2', 'ring-green-500');
+                });
+                
+                // Add active state to selected
+                if (this.checked) {
+                    this.parentElement.classList.add('border-green-500', 'ring-2', 'ring-green-500');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
